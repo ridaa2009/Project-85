@@ -18,9 +18,10 @@ function add()
 	background_imgTag.onload=uploadBackground;
 	background_imgTag.src=background_image;
 
-	greencar_image= new Image;
-	greencar_image.onload= uploadgreencar;
-	greencar_image.src=greencar_image;
+	greencar_imgTag= new Image;
+	greencar_imgTag.onload= uploadgreencar;
+	greencar_imgTag.src=greencar_image;
+	console.log("hello im an add")
 
 }
 
@@ -73,10 +74,9 @@ function my_keydown(e)
 
 function up()
 {
-	if(greencar_y=0)
+	if(greencar_y>=0)
 	{
-		greencar_y=greencar_y=10;
-		console.log("when up arrow is pressed , x="+ greencar_x+"" |y="+greencar_y)" );
+		greencar_y=greencar_y-10;
 		uploadBackground();
 		uploadgreencar();
 	}
@@ -85,15 +85,30 @@ function up()
 
 function down()
 {
-	//Define function to move the car downward
+	if(greencar_y<=300)
+	{
+		greencar_y=greencar_y+10;
+		uploadBackground();
+		uploadgreencar();
+	}
 }
 
 function left()
 {
-	//Define function to move the car left side
+	if(greencar_x>=0)
+	{
+		greencar_x=greencar_x-10;
+		uploadBackground();
+		uploadgreencar();
+	}
 }
 
 function right()
 {
-	//Define function to move the car right side
+	if(greencar_x<=525)
+	{
+		greencar_x=greencar_x+10;
+		uploadBackground();
+		uploadgreencar();
+	}
 }
